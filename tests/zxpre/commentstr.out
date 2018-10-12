@@ -1,0 +1,2 @@
+         mov %a,%b
+         db "asd ; qwe"

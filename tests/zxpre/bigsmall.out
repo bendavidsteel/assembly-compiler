@@ -1,0 +1,20 @@
+small:   db "too small\n"
+big:     db "big enough\n"
+main:    mov %a,0x00
+         mov %b,0x01
+lbegin:  add %a,%b
+         add %b,0x01
+         cmp %b,0x05
+         jl lbegin
+         mov %a,0x04
+         mov %b,0x01
+         cmp %a,0x0b
+         jle small
+         mov %c,big
+         mov %d,0x0b
+         jmp print
+psmall:  mov %c,small
+         mov %d,0x0a
+print:   syscall
+         mov %a,0x01
+         syscall
